@@ -7,7 +7,6 @@ Console.WriteLine("Choose your option, cancel by enter 'quit'");
 MenuDialogs menu = new();
 HandleContacts handleContacts = new();
 
-//"contacts.json", @"C:\projects"
 
 while (true)
 {

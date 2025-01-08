@@ -6,11 +6,11 @@ namespace Contacts.Servicies
     public class HandleContacts
     {
         private List<Contact> _contacts = [];
+        private FileManager _fileManager = new FileManager(@"C:\projects\data", "contacts.json");
 
         public void AddContact()
         {
             Contact contact = new();
-            Console.Clear();
 
             Console.WriteLine("Enter your first name:");
             contact.FirstName = Console.ReadLine()!;
@@ -27,27 +27,23 @@ namespace Contacts.Servicies
             Console.WriteLine("Enter your city:");
             contact.City = Console.ReadLine()!;
 
-            Console.WriteLine($"Ditt namn är: {contact.FirstName} {contact.LastName}");
-
             _contacts.Add(contact);
-
-            //string fileName = "Contacts.json";
-            //string jsonString = JsonSerializer.Serialize(contact);
-            //File.WriteAllText(fileName, jsonString );
-            //Console.WriteLine(File.ReadAllText(fileName));
+            _fileManager.SaveToFile(_contacts);
         }
 
         public void ViewContacts()
         {
-            Console.Clear();
+            _contacts = _fileManager.GetContacts();
 
             foreach (Contact contact in _contacts)
             {
-                Console.WriteLine($"Id: {contact.Id}");
-                Console.WriteLine($"Name: {contact.FirstName} {contact.LastName}");
-                Console.WriteLine($"Email: {contact.Email}");
-                Console.WriteLine($"Phone number: {contact.PhoneNumber}");
-                Console.WriteLine($"Address: {contact.Address} {contact.ZipCode} {contact.City}");
+                Console.WriteLine();
+                Console.WriteLine($"{"Id:",-15} {contact.Id}");
+                Console.WriteLine($"{"Name:", -15} {contact.FirstName} {contact.LastName}");
+                Console.WriteLine($"{"Email:",-15} {contact.Email}");
+                Console.WriteLine($"{"Phone number:",-15} {contact.PhoneNumber}");
+                Console.WriteLine($"{"Address:",-15} {contact.Address}, {contact.ZipCode} {contact.City}");
+                Console.WriteLine();
             }
             Console.ReadKey();
         }
