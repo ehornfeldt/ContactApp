@@ -14,7 +14,7 @@
                 if (CheckOption(option))
                 {
                     return option;
-                } else if(option == "quit") {
+                } else if(option.ToLower() == "quit") {
                     return "quit";
                 }
                 Console.WriteLine("Choose a number between 1 or 2");
