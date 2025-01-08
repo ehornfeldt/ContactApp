@@ -5,7 +5,7 @@ namespace Contacts.Tests.Servicies
 {
     public class FileManager_Test
     {
-
+        /*Ideer om vad som kan testas är från ChatGPT, men koden är omskriven*/
         private string _filePath = Path.Combine(@"C:\projects\data\test", "test.json");
         private List<Contact> _list = new List<Contact>
             {

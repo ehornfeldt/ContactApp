@@ -1,4 +1,6 @@
-﻿using Contacts.Servicies;
+﻿using System;
+using System.IO;
+using Contacts.Servicies;
 
 namespace Contacts.Tests.Servicies
 {
@@ -16,7 +18,7 @@ namespace Contacts.Tests.Servicies
             
             //arrange
             string userInput = "1";
-            Console.SetIn(new System.IO.StringReader(userInput));
+            Console.SetIn(new StringReader(userInput));
             var menuDialogs = new MenuDialogs(); 
 
             //act
@@ -31,7 +33,7 @@ namespace Contacts.Tests.Servicies
         {
             //arrange
             string userInput = "2";
-            Console.SetIn(new System.IO.StringReader(userInput));
+            Console.SetIn(new StringReader(userInput));
             var menuDialogs = new MenuDialogs();
 
             //act
@@ -46,7 +48,7 @@ namespace Contacts.Tests.Servicies
         {
             //arrange
             string userInput = "quit";
-            Console.SetIn(new System.IO.StringReader(userInput));
+            Console.SetIn(new StringReader(userInput));
             var menuDialogs = new MenuDialogs();
 
             //act
@@ -61,7 +63,7 @@ namespace Contacts.Tests.Servicies
         {
             //arrange
             string userInput = "5\nhello\n1";
-            Console.SetIn(new System.IO.StringReader(userInput));
+            Console.SetIn(new StringReader(userInput));
             var menuDialogs = new MenuDialogs();
 
             //act
